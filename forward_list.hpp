@@ -144,14 +144,14 @@ std::vector<T> Forward_list<T>::quicSort(std::vector<T> vec){
   std::vector<T> greater;
 
 
-  for(int i = 0; i < vec.size(); ++i){
-    if(i == pivotIndex){
+  for(int i = 0; i < vec.size(); ++i) {
+    if(i == pivotIndex) {
       continue;
     }
 
-    if(vec[i] < pivot){
+    if(vec[i] < pivot) {
       less.push_back(vec[i]);
-    }else{
+    } else {
       greater.push_back(vec[i]);
     }
   }
@@ -207,7 +207,6 @@ template <typename T>
 void Forward_list<T>::push_back(T val){
 	Node<T> *new_node = new Node<T>;
 	new_node->value = val;
-	// new_node->next = nullptr;
 
 	if (_length == 0 || _first_item == nullptr){
 		_first_item = new_node;
