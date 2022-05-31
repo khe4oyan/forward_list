@@ -207,7 +207,7 @@ template <typename T>
 void Forward_list<T>::push_back(T val){
 	Node<T> *new_node = new Node<T>;
 	new_node->value = val;
-	new_node->next = nullptr;
+	// new_node->next = nullptr;
 
 	if (_length == 0 || _first_item == nullptr){
 		_first_item = new_node;
@@ -506,7 +506,7 @@ void Forward_list<T>::operator+=(Forward_list<T>& f_list) {
 
 template <typename T>
 bool Forward_list<T>::operator==(const Forward_list<T>& f_list) {
-	if (this == nullptr && f_list == nullptr) {
+	if (this == nullptr && f_list._first_item == nullptr) {
 		return true;
 	}
 
