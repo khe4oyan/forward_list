@@ -1,0 +1,7 @@
+emplace u insert tarberutyunnery kardal
+kardal variadic template masin
+
+--- iteratora petq ---
+emplace position chpiti lini ayl iterator(argument)
+erase petqa stana iterator
+insert stana iterator, ekrord parametr sxala https://en.cppreference.com/w/cpp/container/list/insert
