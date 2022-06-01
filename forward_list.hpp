@@ -80,7 +80,9 @@ Forward_list<T>::Forward_list(std::initializer_list<T> list) {
 template <typename T>
 Forward_list<T>::Forward_list(Forward_list &&move_obj){
 	if (move_obj._first_item == nullptr){
-		error("1");
+		this->_first_item = nullptr;
+		this->_length = 0;
+		return;
 	}
 
 	this->_first_item = move_obj._first_item;
@@ -181,7 +183,7 @@ Node<T> Forward_list<T>::front(){
 
 template <typename T>
 void Forward_list<T>::clear(){
-	if (_first_item == nullptr || _length == 0){
+	if (_first_item == nullptr && _length == 0){
 		return;
 	}
 
@@ -208,7 +210,7 @@ void Forward_list<T>::push_back(T val){
 	Node<T> *new_node = new Node<T>;
 	new_node->value = val;
 
-	if (_length == 0 || _first_item == nullptr){
+	if (_length == 0 && _first_item == nullptr){
 		_first_item = new_node;
 	}
 	else{
