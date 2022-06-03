@@ -30,7 +30,7 @@ public:
 	~Forward_list();
 	Forward_list(std::initializer_list<T> );
 	Forward_list(const Forward_list& );
-	Forward_list(Forward_list &&);
+	Forward_list(const Forward_list &&);
 	Node<T> front();
 	void clear();
 	bool is_empty();
@@ -46,20 +46,22 @@ public:
 	void remove_if();
 	void sort();
 
-	Forward_list operator=(Forward_list<T>& );
+	Forward_list operator=(const Forward_list<T>& );
 	Forward_list<T>& operator=(const Forward_list<T>&& );
-	Forward_list operator+(Forward_list<T>& );
-	void operator+=(Forward_list<T>& );
+	Forward_list operator+(const Forward_list<T>& );
+	Forward_list<T>& operator+=(const Forward_list<T>& );
 	bool operator==(const Forward_list<T>& );
 	bool operator!=(const Forward_list<T>& );
-	bool operator>(Forward_list<T> &);
-	bool operator<(Forward_list<T> &);
-	bool operator>=(Forward_list<T> &);
-	bool operator<=(Forward_list<T> &);
+	bool operator>(const Forward_list<T> &);
+	bool operator<(const Forward_list<T> &);
+	bool operator>=(const Forward_list<T> &);
+	bool operator<=(const Forward_list<T> &);
 	template <typename U>
 	friend std::ostream &operator<<(std::ostream &, const Forward_list<U> &);
 };
 
+#include "forward_list_constructors.hpp"
 #include "forward_list_methods.hpp"
+#include "forward_list_opeartors.hpp"
 
 #endif
