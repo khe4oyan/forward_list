@@ -26,6 +26,19 @@ private:
 	bool is_sorted(Forward_list<T>* );
 	std::vector<T> quicSort(std::vector<T> vec);
 public:
+	class Iterator{
+		private:
+			Node<T>* node;
+
+		public:
+			Iterator(){
+				this->node = nullptr;
+			}
+			Node<T>& operator++(){
+				return this->node->next;
+			}
+	};
+
 	Forward_list();
 	~Forward_list();
 	Forward_list(std::initializer_list<T> );
