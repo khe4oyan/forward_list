@@ -180,7 +180,8 @@ std::ostream &operator<<(std::ostream &os, const Forward_list<T> &f_list){
 	Node<T> *select_ptr = f_list._first_item;
 
 	while (select_ptr != nullptr){
-		os << select_ptr->value << std::endl;
+		os << select_ptr->value;
+		os << (select_ptr->next != nullptr ? ", " : ".\n");
 		select_ptr = select_ptr->next;
 	}
 

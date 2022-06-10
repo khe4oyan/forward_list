@@ -44,7 +44,10 @@ public:
 	Forward_list(std::initializer_list<T> );
 	Forward_list(const Forward_list& );
 	Forward_list(const Forward_list &&);
-	Node<T> front();
+
+	Node<T>& begin();
+	Node<T>& end();
+	Node<T>& front();
 	void clear();
 	bool is_empty();
 	void push_back(T );

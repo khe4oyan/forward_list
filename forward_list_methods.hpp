@@ -75,9 +75,24 @@ std::vector<T> Forward_list<T>::quicSort(std::vector<T> vec){
   return return_vec;
 }
 
+template<typename T>
+Node<T>& Forward_list<T>::begin(){
+	return _first_item;
+}
+
+template<typename T>
+Node<T>& Forward_list<T>::end(){
+	Node<T>* select_ptr = _first_item;
+
+	while(select_ptr->next != nullptr){
+		select_ptr = select_ptr->next;
+	}
+
+	return select_ptr;
+}
 
 template <typename T>
-Node<T> Forward_list<T>::front(){
+Node<T>& Forward_list<T>::front(){
 	return _first_item;
 }
 
