@@ -62,8 +62,8 @@ public:
 	void remove_if();
 	void sort();
 
-	Forward_list operator=(const Forward_list<T>& );
-	Forward_list<T>& operator=(const Forward_list<T>&& );
+	Forward_list<T>& operator=(const Forward_list<T>& );
+	Forward_list<T>& operator=(Forward_list<T>&& );
 	Forward_list operator+(const Forward_list<T>& );
 	Forward_list<T>& operator+=(const Forward_list<T>& );
 	bool operator==(const Forward_list<T>& );

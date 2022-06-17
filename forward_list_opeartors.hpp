@@ -2,34 +2,37 @@
 #define _FORWARD_LIST_OPERATORS
 
 template <typename T>
-Forward_list<T> Forward_list<T>::operator=(const Forward_list<T>& f_list) {
-  if (this->_length != 0) {
-		this->clear();
+Forward_list<T>& Forward_list<T>::operator=(const Forward_list<T>& f_list) {
+	if(f_list._length == 0 && f_list._first_item == nullptr){
+		return this;
 	}
 
-	Node<T>* select_ptr = f_list._first_item;
+	Forward_list<T> temp_list;
 
-	while (select_ptr != nullptr) {
-		this->push_back(select_ptr->value);
-		select_ptr = select_ptr->next;
+	Node<T>* select_node = f_list._first_item;
+
+	while(select_node != nullptr){
+		temp_list.push_back(select_node->value);
+		select_node = select_node->next;
 	}
 
-	return this;
+	return temp_list;
 }
 
 template <typename T>
-Forward_list<T>& Forward_list<T>::operator=(const Forward_list<T>&& f_list) {
-	if (this->_length != 0) {
-		this->clear();
+Forward_list<T>& Forward_list<T>::operator=(Forward_list<T>&& f_list) {
+	Forward_list<T> temp_list;
+
+	Node<T>* select_node = f_list._first_item;
+
+	while(select_node != nullptr){
+		temp_list.push_back(select_node->value);
+		select_node = select_node->next;
 	}
 
-	this->_length = f_list._length;
-	this->_first_item = f_list._first_item;
+	f_list.clear();
 
-	f_list._first_item = nullptr;
-	f_list._length = 0;
-
-	return this;
+	return temp_list;
 }
 
 template <typename T>
@@ -175,7 +178,7 @@ std::ostream &operator<<(std::ostream &os, const Forward_list<T> &f_list){
 	if (f_list._first_item == nullptr){
 		os << "is empty\n";
 		return os;
-	}
+	}	
 
 	Node<T> *select_ptr = f_list._first_item;
 
