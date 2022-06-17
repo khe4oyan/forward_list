@@ -93,7 +93,7 @@ Node<T>& Forward_list<T>::end(){
 
 template <typename T>
 Node<T>& Forward_list<T>::front(){
-	return _first_item;
+	return *_first_item;
 }
 
 template <typename T>
@@ -271,31 +271,32 @@ void Forward_list<T>::remove(T del_value){
 }
 
 template <typename T>
-void Forward_list<T>::erase(int position){
-	// petqa stana iterator
-	if (position > _length){
-		error("7");
-		return;
-	}
+void Forward_list<T>::erase(Forward_list<T>::Iterator it){
+	// // petqa stana iterator
+	// if (position > _length){
+	// 	error("7");
+	// 	return;
+	// }
 
-	int i = 1; // index
+	// int i = 1; // index
 
-	Node<T> *select_ptr = _first_item;
-	while (i != position){
-		select_ptr = select_ptr->next;
-		i++;
-	}
+	// Node<T> *select_ptr = _first_item;
+	// while (i != position){
+	// 	select_ptr = select_ptr->next;
+	// 	i++;
+	// }
 
-	Node<T> *tmp_node = select_ptr;
-	select_ptr = select_ptr->next;
-	tmp_node->next = nullptr;
+	// Node<T> *tmp_node = select_ptr;
+	// select_ptr = select_ptr->next;
+	// tmp_node->next = nullptr;
 
-	while (select_ptr != nullptr){
-		Node<T> *tmp = select_ptr->next;
-		delete select_ptr;
-		select_ptr = tmp;
-		_length--;
-	}
+	// while (select_ptr != nullptr){
+	// 	Node<T> *tmp = select_ptr->next;
+	// 	delete select_ptr;
+	// 	select_ptr = tmp;
+	// 	_length--;
+	// }
+
 }
 
 template <typename T>

@@ -18,7 +18,7 @@ struct Node{
 template <typename T>
 class Forward_list{
 private:
-	Node<T> *_first_item;
+	Node<T> * _first_item;
 	int _length;
 
 	void set_zero();
@@ -31,12 +31,25 @@ public:
 			Node<T>* node;
 
 		public:
+			void get(){
+				std::cout << node->value;
+			}
 			Iterator(){
 				this->node = nullptr;
+			}
+			~Iterator(){
+				this->node = nullptr;
+			}
+			Iterator(Node<T>* input_node){
+				this->node = input_node;
+			}
+			Forward_list<T>::Iterator operator=(const constForward_list<T>::Iterator other_it ){
+				this->node = other_it;
 			}
 			Node<T>& operator++(){
 				return this->node->next;
 			}
+			
 	};
 
 	Forward_list();
@@ -48,6 +61,7 @@ public:
 	Node<T>& begin();
 	Node<T>& end();
 	Node<T>& front();
+
 	void clear();
 	bool is_empty();
 	void push_back(T );
@@ -56,7 +70,7 @@ public:
 	void push_front(T );
 	void emplace(T , int );
 	void remove(T);
-	void erase(int );
+	void erase(Forward_list<T>::Iterator );
 	void insert(int );
 	void reverse();
 	void remove_if();
