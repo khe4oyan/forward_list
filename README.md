@@ -1,8 +1,3 @@
-![banner](https://raw.githubusercontent.com/khe4oyan/repo_banners/main/banners/forward_list.png)
-
----
-
-<!-- 
 ## Constructors
 <br>✅ Default
 <br>✅ ~Destructor  
@@ -46,4 +41,4 @@
 --- 
 
 ## Other
-<br>⬜ use iterator -->
+<br>⬜ use iterator
